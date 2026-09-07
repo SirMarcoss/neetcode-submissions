@@ -1,0 +1,19 @@
+class Solution:
+    def merge(self, intervals: List[List[int]]) -> List[List[int]]:
+
+        intervals.sort(key=lambda x: x[0])
+        res = []
+
+        for current in intervals:
+            if not res or res[-1][1] < current[0]:
+                res.append(current)
+            else:
+                res[-1][1]= max(res[-1][1], current[1])
+        return res
+
+# Time: O(N logN)
+# Space: O(n) if we're considering the ouput array res
+
+
+
+        
